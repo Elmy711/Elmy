@@ -38,8 +38,9 @@ function startScript() {
     }
 
     function getTitleFromHTML(html) {
-      const match = html.match(/<title>(.*?)<\/title>/i);
-      return match ? match[1] : 'No Title';
+  if (typeof html !== 'string') return 'No Title';
+  const match = html.match(/<title>(.*?)<\/title>/i);
+  return match ? match[1] : 'No Title';
     }
 
     function getStatus(targetURL) {
